@@ -10,15 +10,14 @@ using qgate = std::array<Complex, 4>; // row-major {u00, u01, u10, u11}
 static constexpr Complex imag_unit = Complex(0.0, 1.0);
 //
 //
-//
-//
+
 
 qstate apply_gate(const qgate& gate, const qstate& state)
 {
-  qstate postQgatestate{};
-  postQgatestate[0] = gate[0] * state[0] + gate[1] * state[1];
-  postQgatestate[1] = gate[2] * state[0] + gate[3] * state[1];
-  return postQgatestate;
+  qstate postgatestate{};
+  postgatestate[0] = gate[0] * state[0] + gate[1] * state[1];
+  postgatestate[1] = gate[2] * state[0] + gate[3] * state[1];
+  return postgatestate;
 }
 
 qgate hadamard()
@@ -54,6 +53,6 @@ int main()
 
   state = apply_gate(pauliX(), state);
   std::cout << state[0] << " " << state[1] << std::endl;
-  
+
   return 0;
 }
