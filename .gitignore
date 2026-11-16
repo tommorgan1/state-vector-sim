@@ -1,0 +1,8 @@
+# build artifacts
+**/build/*
+
+# vscode 
+.vscode/*
+
+# perf
+perf.*
